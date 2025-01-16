@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>doc</title> -->
+    <link rel="stylesheet" href="assignment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- <div class="cont">
+        <div class="app-title">WordReplacer App</div>
+        <input type="text" id="inputText" placeholder="Enter your text here"/>
+        <div class="button-cont">
+           <button class="replace-btn" onclick="replaceWords()">Click Here</button>
+        </div>
+        <button id="processButton">Censor Words</button>
+        <div class="result-box" id="output-box"></div>
+
+    </div> -->
+
+    <div class="container">
+        <h1>Word Censorship App</h1>
+        <textarea id="userInput" placeholder="Type your text here..." rows="6"></textarea>
+        <button id="censorButton">Censor Words</button>
+        <h3>Result:</h3>
+        <div id="output"></div>
+      </div>
+
+    
+</body>
+</html>
+<script>
+    // List of words to censor
+const forbiddenWords = ["badword", "example", "censor", "inappropriate"];
+
+// Function to censor specific words
+function censorText(text) {
+  const words = text.split(" ");
+  const censoredWords = words.map((word) => {
+    const cleanWord = word.toLowerCase();
+    if (forbiddenWords.includes(cleanWord)) {
+      return "*".repeat(word.length);
+    }
+    return word;
+  });
+  return censoredWords.join(" ");
+}
+
+// Add event listener to the button
+document.getElementById("censorButton").addEventListener("click", () => {
+  const userInput = document.getElementById("userInput").value;
+  const censoredText = censorText(userInput);
+  document.getElementById("output").textContent = censoredText;
+});
+</script>

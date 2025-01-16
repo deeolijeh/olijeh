@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* App Container Styling */
+.container {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 600px;
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6363;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Header Styling */
+h1 {
+  font-size: 26px;
+  font-family: italic;
+  color: #333;
+  margin-bottom: 20px;
+}
+/* Textarea Styling */
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #f7cac9;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+button {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: linear-gradient(45deg, #ff7a7e, #f8bfbf);
+}
+
+/* Output Area Styling */
+#output {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #f7cac9;
+  border-radius: 8px;
+  background-color: #fff6f6;
+  font-size: 16px;
+  text-align: left;
+  color: #333;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- App Logo -->
+        <div class="logo">
+          <span class="logo-text">✂ Word Censor</span>
+        </div>
+        <!-- App Header -->
+        <h1>WordSensor App</h1>
+        <!-- Input Area -->
+        <textarea id="userInput" placeholder="Type your text here..." rows="6"></textarea>
+        <!-- Button -->
+        <button id="censorButton">Censor Words</button>
+        <!-- Output Area -->
+        <h3>Result:</h3>
+        <div id="output"></div>
+      </div>
+    
+</body>
+</html>
+<script>
+    // List of forbidden words to censor
+const forbiddenWords = ["fuck", "damn", "shit", "bitch","fucking" ];
+
+// Function to censor specific words
+function censorText(text) {
+  const words = text.split(" "); // Split input text into individual words
+  const censoredWords = words.map((word) => {
+    // Convert the word to lowercase for case-insensitive matching
+    const cleanWord = word.toLowerCase();
+    if (forbiddenWords.includes(cleanWord)) {
+      return "*".repeat(word.length); // Replace with asterisks
+    }
+    return word; // Keep the word if it's not forbidden
+  });
+  return censoredWords.join(" "); // Join the censored words back into a sentence
+}
+
+// Add event listener to the button
+document.getElementById("censorButton").addEventListener("click", () => {
+  const userInput = document.getElementById("userInput").value; // Get input from user
+  const censoredText = censorText(userInput); // Censor forbidden words
+  document.getElementById("output").textContent = censoredText; // Display the result
+});
+</script>

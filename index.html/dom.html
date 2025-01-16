@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" id="myInput"> <button onclick="showMeInputValue()">Click me</button>
+
+
+     <button onclick="showDropDown()">Click me </button>
+    <div id="dropdown" style="background-color: white; box-shadow: 1px 1px black;
+    border: 1px solid black;"> 
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+        </ul>
+    </div> -->
+
+    
+</body>
+</html>
+<script>
+
+    let myHtmlBody =document.body
+    myHtmlBody.style.backgroundColor = 'red'
+    let myFirstDiv = document.getElementById('dropdown')
+    console.log(myFirstDiv);
+    myFirstDiv.style.display = 'none'
+
+    function showDropDown(params) {
+        myFirstDiv.style.display = 'block'
+        
+    }
+
+    let input = document.getElementById('myInput')
+    console.log(input);
+
+    // input.value = 'wowww, js is amazing'
+    
+    function showMeInputValue(params) {
+        console.log(input,value);
+        
+    }
+    
+</script>

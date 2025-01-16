@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="input1"> <input type="text" id="input2"> <button onclick="add()">add</button>
+    <div id="preview"></div>
+</body>
+</html>
+
+<script>
+    let firstInput = document.getElementById('input1')// ''
+    let secondInput = document.getElementById('input2')//''
+    let displayDiv = document.getElementById('preview')
+
+    console.log(firstInput, secondInput, displayDiv);
+
+    function add() {
+
+        let ans = Number(firstInput.value )+ Number(secondInput.value)
+
+        displayDiv.innerHTML = `<b>${ans}</b>`
+        firstInput.value = ''
+        secondInput.value = ''
+    }
+
+    let x = 7
+    console.log(x);
+    // x = x + 6  |x = x - 6 | x = x/2 | x = x * 5| x = x % 2 | x = x **2
+    x += 6
+    x-= 6
+    x /= 2
+    x *= 5
+    x %= 2
+    x **= 2
+    console.log(x);
+    
+        
+</script>
